@@ -53,7 +53,7 @@ li { cursor: pointer; }
 
         .mapboxgl-popup-content {
           text-align: center;
-          font-family: 'Cairo', sans-serif;
+          font-family: 'Overpass', sans-serif;
           font-size: 2.5em;
           font-style: 'bold'; 
           box-shadow: 3px 3px 2px rgb(255, 255, 255, 0);
@@ -158,7 +158,7 @@ a.cap {
   padding:  50px 0px 75px 0px;
   width: 38%;
   margin-left: 3%;
-  font-family: Cairo, sans-serif;
+  font-family: 'Overpass', sans-serif;
   overflow-y: none;
   color: white;
   opacity:0.99; 
@@ -174,7 +174,7 @@ a.cap {
   width: 25%;  
   top: 12%;  
   margin-left: 65%!important;
-  font-family: Cairo, sans-serif!important;
+  font-family: 'Overpass', sans-serif;
   overflow-y: none;
   color: white;
   opacity:0.99; 
@@ -222,7 +222,7 @@ a.cap {
   width: 50%;  
   top: 20%;  
   margin-left: 45%!important;
-  font-family: Cairo, sans-serif!important;
+  font-family: 'Overpass', sans-serif;
  }
 
  #bb {
