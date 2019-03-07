@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "camps_off",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": null, "Name": "Nayapara RC", "Population": 26928 }, "geometry": { "type": "Point", "coordinates": [ 92.245755362207234, 20.955200701735048 ] } },
+{ "type": "Feature", "properties": { "id": null, "Name": "Kutupalong RC", "Population": 17993 }, "geometry": { "type": "Point", "coordinates": [ 92.164269100485304, 21.208830278844926 ] } }
+]
+}

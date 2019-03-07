@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en" dir='ltr'>
+  <head>
+            <!--jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <link href="https://data2.unhcr.org/bundles/owpcommon/images/favicon_unhcr.ico" rel="icon" type="image/x-icon">
+ 
+        <link rel="stylesheet" href="https://data2.unhcr.org/css/a2cd82c.css"/>            
+        <script type="text/javascript" src="https://data2.unhcr.org/js/d4b9dbf.js"></script>
+        <script type="text/javascript" src="https://data2.unhcr.org/js/b6cd9a9.js"></script>        
+        <script src="https://data2.unhcr.org/bundles/fosjsrouting/js/router.js"></script>
+        <script src="https://data2.unhcr.org/js/routing?callback=fos.Router.setData"></script>
+
+        
+
+    </head>
+  <body>
+
+      <style>  ::-webkit-scrollbar {
+          width: 10px;
+        }
+
+      </style> 
+      <!-- content -->
+      
+  <div id="unhcr">
+
+  <div class="row">
+    <div class="col-md-12">        
+    </div>
+  </div>
+  <script type="text/javascript">
+    $(function(){
+        $.getJSON('https://data2.unhcr.org/api/population/get?widget_id=99306&sv_id=34&population_group=4803',function(data){
+            console.log('success');
+            $.each(data.data,function(i,emp){
+                $('.popTotalFigure').append(''+emp.individuals+'');
+            });
+        }).error(function(){
+            console.log('error');
+        });
+    });
+    $(function(){
+        $.getJSON('https://data2.unhcr.org/api/population/get?widget_id=99306&sv_id=34&population_group=4803',function(data){
+            console.log('success');
+            $.each(data.data,function(i,emp){
+                $('.popTotalHouseholds').append(''+emp.households+'');
+            });
+        }).error(function(){
+            console.log('error');
+        });
+    });
+    $(function(){
+        $.getJSON('https://data2.unhcr.org/api/population/get?widget_id=99306&sv_id=34&population_group=4803',function(data){
+            console.log('success');
+            $.each(data.data,function(i,emp){
+                $('.popTotalDate').append(''+emp.date+'');
+            });
+        }).error(function(){
+            console.log('error');
+        });
+    });
+</script>
+  <div style="line-height: 0.8">&nbsp;</div>
+  <ul></ul>
+  <div class="container-fluid max-content-width">
+    <div class="row">
+      <div class="col-md-8">
+             <div class="widget-wrapper">
+                <div class="popTotal">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="popTotalTitle">
+                                    <img src="img/unhcr.jpg" width= 30%/> <br>Refugee Response in Bangladesh
+                                                <a target="_blank" href="https://data2.unhcr.org/api/population/get?widget_id=99306&amp;sv_id=34&amp;population_group=4803" class="pull-right widget-feed-link ">JSON&nbsp;<i class="fa fa-rss" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="popTotalFigure" style="color: #3c8dbc">
+           
+          </div>
+        </div>
+        <div class="col-xs-6">        
+          <div class="popTotalSource small">Source - UNHCR&nbsp;</div>
+        </div>
+      </div>
+
+      
+        <div class="row">
+          <div class="col-md-12">
+            <div class="popTotalHouseholdsTitle">
+                              Households
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="popTotalHouseholds" style="color: #3c8dbc">
+
+            </div>
+            <div class="popTotalDate small">
+              Last updated 
+            </div>
+          </div>
+          <div class="col-md-4">
+                      </div>
+          <div class="col-md-4">
+            <div class="popTotalSource small">Source - UNHCR</div>
+          </div>
+        </div>
+
+      
+    </div>
+
+  </div>
+
+
+
+                                                <div class="widget-wrapper">
+<div class="widget linksWidget">
+    <div class="row">
+    <div class="col-md-12">
+        <b>* This figure includes 33,956 previously registered refugees from Myanmar in Kutupalong refugee camp and Nayapara refugee camp.</b> For more information on population figures <a href="https://data2.unhcr.org/en/documents/details/64898"> please click here </a>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+                                                <div id="widget_99308" class="widget-wrapper">
+  <div class="widget">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="widgetTitle">
+                       
+                                <a href="https://data2.unhcr.org/api/population/get/demography?widget_id=99308&amp;sv_id=34&amp;population_group=4803" class="pull-right widget-feed-link ">JSON&nbsp;<i class="fa fa-rss" aria-hidden="true"></i>
+            </a>
+                    </div>
+              
+          <div class="widgetSubtitle">
+            Demographic breakdown
+          </div>
+                  </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div data-demography-chart data-categories="[&quot;0-4&quot;,&quot;5-11&quot;,&quot;12-17&quot;,&quot;18-59&quot;,&quot;60+&quot;]" data-male="[-9.4430603251558,-11.327707075468,-6.7829326869122,-18.777635624986,-1.7125670549682]" data-female="[9.2537726602773,10.731039436177,6.7133526361861,23.344855191196,1.9130773086736]" data-color="#3c8dbc" style="height: 159px" class="graph"></div>
+          <div id="widget_source_99308" class="popTotalSource small">Source - UNHCR</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Rohingya conflict</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!--meta data for sharing links on Facebook-->
+    <meta property="og:title" content="Rohingya"/>
+    <meta property="og:url" content="https://geoviz.ceoas.oregonstate.edu"/>
+    <meta property="og:description" content="For info contact:svevog@oregonstate.edu"/>
+    <meta property="og:image" content="img/social.png"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--add required stylesheets-->
+    <!--leaflet css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css">
+
+    <!--add favicon for the web page-->
+    <link rel="shortcut icon" href="img/nglogo.png" type="image/x-icon">
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
+
+
+    <link rel="stylesheet" type="text/css" href="dist/storymap.2.4.css">
+    <!--add required libraries-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"></script>
+    <!--jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+    <!--boostrap-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <!--leaflet.ajax for asynchronously adding geojson data-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+
+    <!--ant-path-->
+    <script src="js/leaflet-ant-path.js" type="text/javascript"></script>
+
+    <!--story map plugin-->
+    <script src="dist/storymap.2.4.js"></script>
+    <script type="text/javascript">
+        (function($){
+            $(window).on('load', function(){
+                $.instagramFeed({
+                    'username': 'unhcr_bgd',
+                    'container': "#instagram-feed2",
+                    'display_profile': false,
+                    'display_biography': false,
+                    'display_gallery': true,
+                    'get_raw_json': false,
+                    'callback': null,
+                    'styling': true,
+                    'items': 6,
+                    'items_per_row': 3,
+                    'margin': 0.5 
+                });
+            });
+        })(jQuery);
+    </script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="img/ng.png" width="150" height="30" alt="">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#info-modal">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" onclick="Kutupalong()">Situations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div id='stories'>
+        <div class="alert-close">×</div>
+        <!--Insert #yourshot nat geo crawler image urls here-->
+        <div class="row text-center">
+            <div class="bob col-md-4 col-lg-4 ">
+                <a href="https://yourshot.nationalgeographic.com/photos/13384748/" target="_blank"><img
+                        src="https://yourshot.nationalgeographic.com//u/fQYSUbVfts-T7pS2VP2wnKyN8wxywmXtY0-Fwsgxo79XkYmeyScd6cvSM2N4kUuw2AbnfyWuMPvE1aQXTwT7DpMo42XrHk08yh4lm-e76QCk1n2yjG9zgV4BXkrUiCRUA5-utAoLXcdefuII1gZJ7HEHfsjYgz0/"
+                        class="image">
+                    <div class="overlay">
+                        <div class="middle"> A new chapter is beginning<br>
+                            <small>© Arif Zaman</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        
+            <div class="bob col-md-4 col-lg-4 ">
+                <a href="https://yourshot.nationalgeographic.com/photos/13418098/" target="_blank"><img
+                        src="https://yourshot.nationalgeographic.com//u/fQYSUbVfts-T7pS2VP2wnKyN8wxywmXtY0-Fwsgxo79QDirGRCZAOuvkogRIoReD7BVB71MsBw53VO8wzfcm9VjtZNhrpmLil09hh9IfaT68UYfJQiTLmcql4cRNd-wvKLVVre9-E8GIZB61d9Anj23K8kcPVcE/"
+                        class="image">
+    
+                    <div class="overlay">
+                        <div class="middle"> Scream of Happiness<br>
+                            <small>© Nihab Rahman</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+    
+            
+            <div class="bob col-md-4 col-lg-4 ">
+                <a href="https://yourshot.nationalgeographic.com/photos/11506712/" target="_blank"><img
+                        src="https://yourshot.nationalgeographic.com/u/fQYSUbVfts-T7odkrFJckdiFeHvab0GWOfzhj7tYdC0uglagsDNfMzHMUv29rQPV-XaenkppMNaXMevo_0JVLI0ygfDwzoy-l74jGSO6xJBZfZ04WPAqwBopNekh1ZsnXY4kz1WAX1YqkLg5IKv9NxLb-Iuee08HaxZOIjZUkEjMyGAmH-dGHwRqbUud2FBk3Samsp2t3Lht7Q1rLBYG9QIYH_eW/"
+                        class="image">
+    
+                    <div class="overlay">
+                        <div class="middle"> Building a new life, one brick at a time<br>
+                            <small>© Shantanu Saha</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    
+            
+    
+        <div class="row text-center">
+    
+            <div class="bob col-md-4 col-lg-4 ">
+                <a href="https://yourshot.nationalgeographic.com/photos/11098300/" target="_blank"><img
+                         src="https://yourshot.nationalgeographic.com/u/fQYSUbVfts-T7odkrFJckdiFeHvab0GWOfzhj7tYdC0uglagsDNfNu4KGrtD5amX5vG7Q0C6ATzr1m3uZEZOPA_9JtMLcCQGBqSxyb9ZTO4IbELpquvRckWAStUewfDtQD6Qq2hnB0gK8luMfGZ2WQb-MuUekTcEtiFxx1Kbe9uxREqkeodTNSsseRogf4lzBG1EhxKNrGwfyy7-wd8WdCX4jI9DKFU/"
+                         class="image">
+    
+                    <div class="overlay">
+                        <div class="middle"> In a Rush<br>
+                            <small>© Umer Khan</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+    
+            
+            <div class="bob col-md-4 col-lg-4 ">
+                <a href="https://yourshot.nationalgeographic.com/photos/13384748/" target="_blank"><img
+                        src="https://yourshot.nationalgeographic.com/u/fQYSUbVfts-T7odkrFJckdiFeHvab0GWOfzhj7tYdC0uglagsDNcYjpFRU-XKh2tah66KNAnwXl_YKyy2KAlarV25KF17WXq2jmEMSiAG90yfJiqiwZpURpfsj_9UENsTzLmFWozp8-AKmT1vOboSgRW0aJOd353KKoomWPCD4ek_KGk-iFP9R29ZaAPaIAcFfG4-ZJcErMXdo5jz71yQ-DPLojG/"
+                        class="image">
+    
+                    <div class="overlay">
+                        <div class="middle"> Curious<br>
+                            <small>© Anton Guttman</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+    
+    
+            <div class="bob col-md-4 col-lg-4 ">
+                <a href="https://yourshot.nationalgeographic.com/photos/11572399/" target="_blank"><img
+                        src="https://yourshot.nationalgeographic.com/u/fQYSUbVfts-T7odkrFJckdiFeHvab0GWOfzhj7tYdC0uglagsDNfMzZ3A_kKiP3j1X9t74yYLJck1VXpCZzhkr8fkWal9mjTVZJwc4m6ArtOneL_rmamEKqeJ70LM_uGU90LTc2mfn6fEoor_-PD_rZZaLrf8pbzqtcq2s6oBBXrh4dXyK3tm57OCpSk3lDH4MMJn5bcQo3ly56m-oZKBBVtQONb7_w/"
+                        class="image">
+    
+                    <div class="overlay">
+                        <div class="middle"> Playing with brother<br>
+                            <small>© Rakibul Hasan</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+    
+        </div>
+    
+    
+        <div class="row text-center">
+    
+            <div class="bob col-md-4 col-lg-4 ">
+                <a href="https://yourshot.nationalgeographic.com/photos/13358690/" target="_blank"><img
+                    src="https://yourshot.nationalgeographic.com/u/fQYSUbVfts-T7odkrFJckdiFeHvab0GWOfzhj7tYdC0uglagsDNd-k3p_4goHRUOXAZu4Pj14doejvOKiKtwwRMvTtQO9Zjb_0H_g_JeC8xEkx-pWSOXU-B_rQ5Vuf33H1XTKmjbKpvtdrKeWuMcsKNd6HFhwLnqpUHeBvSZKToGECrh6rY4RHJGcNX2KQj9CLGCckPR6eN5RXGjzijfq4dxekTi/"
+                    class="image">
+    
+                    <div class="overlay">
+                        <div class="middle"> A girl from a refugee camp<br>
+                            <small>© Erik Lee</small>
+                        </div>
+                    </div>
+                    </a>
+            </div>
+    
+          
+            <div class="bob col-md-4 col-lg-4 ">
+                <a href="https://yourshot.nationalgeographic.com/photos/12062056/" target="_blank"><img
+                        src="https://yourshot.nationalgeographic.com/u/fQYSUbVfts-T7odkrFJckdiFeHvab0GWOfzhj7tYdC0uglagsDNcYDVjXLmx0KTNnXI-bYGao3Qbih23lEc3GAXptpJlt780BIc8Q45aifluLXQWQXfCU5tFOtDqJ91ttjiDyjgT8TL3bAqkCiwsny-jTcTxO7qqtlXhBoO1CWETqt__CRK0HQ_UKBC35dTEBCb4nFEv1FZq93mq2NMh0h3j-wi2QKc/"
+                        class="image">
+    
+                    <div class="overlay">
+                        <div class="middle"> Dream Big <br>
+                            <small>© Mike Kai</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+    
+    
+            <div class="bob col-md-4 col-lg-4 ">
+                <a href="https://yourshot.nationalgeographic.com/photos/11257138/" target="_blank"><img
+                        src="https://yourshot.nationalgeographic.com/u/fQYSUbVfts-T7odkrFJckdiFeHvab0GWOfzhj7tYdC0uglagsDNfNHTWg0Jj6_BKFuWrm-odDzLhvujWKt7RbPUuA_fUVMfFiIhbWY9euYc_E1Vs26qF7gsdn9rfbaZcMSrCQKjjbUD8pLXkdol4TJWiO9wuicVvhd8LXvDgTfEccHFGM2VIQFilVGZbaV7v2KvcE3WTvGxY65OsNdXvZoHXJcJKU48/"
+                        class="image">
+    
+                    <div class="overlay">
+                        <div class="middle"> Push it to the limit<br>
+                            <small>© Yassine Atari</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id='info'></div>
+<div id="storymap" class="container-fluid">       
+    <div class="row">
+        <div class="col-sm-7 col-md-5 storymap-story">
+            <section data-scene="scene0" data-background="img/Kutupalong.mp4">
+                <div class="fullscreen text-center">
+                    <h1 class="title">Kutupalong</h1>
+                </div>
+            </section>
+            <section data-scene="scene1" style="background-color: hsl(0, 0%, 33%, 0.4);">
+                <h1>The Rohingya Conflict</h1><br>
+                <h2>Overview</h2>
+                <p>During World War II in Burma (present-day Myanmar), Rohingya Muslims, who were allied with the British and promised a Muslim state in return, fought against local Rakhine Buddhists, who were allied with the Japanese. Following independence in 1948, the newly formed union government of the predominantly Buddhist country denied citizenship to the Rohingyas, subjecting them to extensive systematic discrimination in the country. This has widely been compared to apartheid by many international academics, analysts and political figures, including Desmond Tutu, a famous South African anti-apartheid activist.
+                </p><p>
+                    <img class="img-responsive img-thumbnail"src="img/independence.jpg" width="100%"/>
+                    <small>President of Burma and the last Saopha of Yawnghwe (source: www.wikidata.org)</small></p>    ,<br>
+                    <small>Text source <a class= "cap" href="https://en.wikipedia.org/wiki/2017%E2%80%93present_Rohingya_genocide_in_Myanmar">wikipedia.org</a>) and <a class= "cap" href="https://www.unhcr.org/rohingya-emergency.html">unhcr.org</a>)</small>   
+            </section>
+
+            <section data-scene="scene2"style="background-color: hsl(0, 0%, 33%, 0.4);">
+                
+                <h2>Ethnic Tensions</h2><br>
+                <p>The situation led to an ongoing conflict in northern Rakhine State, Myanmar (formerly known as Arakan, Burma), characterised by sectarian violence between the Rohingya Muslim and Rakhine Buddhist communities, attacks on Rohingya civilians by Myanmar's security forces, and armed clashes between insurgents and security forces in Buthidaung, Maungdaw, and Rathedaung Townships, which border Bangladesh. The conflict arises chiefly from the religious and social differentiation between the Rakhine Buddhists and Rohingya Muslims. 
+                </p><br>
+                <img class="img-responsive img-thumbnail" src="img/Rohingya.jpg" width="100%"/>
+                    <p><small>Rohingya protests in Burma (credit: globalresearch.ca)</small></p>
+                 <p>In October 2016, Burmese border posts along the Bangladesh–Myanmar border were attacked by a new insurgent group, Harakah al-Yaqin, resulting in the deaths of at least 40 combatants. It was the first major resurgence of the conflict since 2001. Violence erupted again in November 2016, bringing the 2016 death toll to 134, and again on 25 August 2017, when the Arakan Rohingya Salvation Army, (formerly Harakah al-Yaqin), launched coordinated attacks on 24 police posts and an army base that left 71 dead.
+                </p>
+                <img class="img-responsive img-thumbnail" src="img/burned.jpg" width="100%"/>
+                <small>Burned Rohingya village in Rakhine state. (credit: <a class= "cap" href="http://alwaght.com/en/News/108423/Myanmar%E2%80%99s-Army-Burning-Rohingya-Muslim-Villages-Report" target="_blank">alwaght.com)</a></small></p> 
+                <p>A subsequent military crackdown by Myanmar prompted the Office of the U.N. High Commissioner for Human Rights (OHCHR) to investigate the matter and release a report on 11 October 2017 detailing the Burmese military's "systematic process" of driving hundreds of thousands of Rohingyas from Myanmar "through repeated acts of humiliation and violence". According to a March 2018 report by the ASEAN Parliamentarians for Human Rights (APHR), 43,000 Rohingya parents have been "reported lost, [and] presumed dead" since the August 2017 crackdown. </p>
+
+            </section>
+
+
+
+            <section data-scene="scene3"style="background-color: hsl(0, 0%, 33%, 0.4);">
+                <h2>Humanitarian crisis</h2>
+                <p>Since 25 August 2017, a large number of Rohingya people was displaced and became refugees as a result of the military crackdown. According to the United Nations reports, as of January 2018, nearly 690,000 Rohingya people had fled or had been driven out of Rakhine state who then took shelter in the neighboring Bangladesh as refugees. Earlier, it was estimated that around 650,000 Rohingya Muslims had fled Myanmar, as of November 2017. </p>
+                <img class="img-responsive img-thumbnail" src="img/abu.png" width="100%"/>
+                <p><small>Rohingya refugees in refugee camp in Bangladesh, 2017. (credit: <a class= "cap" href="https://en.wikipedia.org/wiki/2017%E2%80%93present_Rohingya_genocide_in_Myanmar#/media/File:Rohingya_refugees_in_refugee_camp_in_Bangladesh,_2017.JPG" target="_blank">wikipedia.org</a>)</small></p> 
+                <p>Over a million Rohingya refugees have fled violence in Myanmar in successive waves of displacement since the early 1990s. The latest exodus began on 25 August 2017, when violence broke out in Myanmar’s Rakhine State, driving more than 723,000 to seek refuge in Bangladesh. Most arrived in the first three months of the crisis. The vast majority reaching Bangladesh are women and children, and more than 40 per cent are under age 12. Many others are elderly people requiring additional aid and protection. They have nothing and need everything. 
+                Nearly all who arrived during the influx have sought shelter in and around the refugee settlements of Kutupalong and Nayapara in Bangladesh’s Cox’s Bazar district. Some have joined relatives there. The enormous scale of the influx is putting an immense pressure on the Bangladeshi host community and existing facilities and services. New spontaneous settlements sprouted overnight, raising concerns over the lack of adequate shelter, water and sanitation, access to basic services, and general protection considerations such as safety for women and girls. 
+                </p>
+                <iframe frameborder="0" height= 600px src="../unhcr2.html" ></iframe>
+                <p><small>UNHCR data on refugee response in Bangladesh. (credit: <a class= "cap" href="https://data2.unhcr.org/en/situations" target="_blank">UNHCR.org</a>)</small></p> 
+                <p>The Bangladesh government has responded generously throughout the latest crisis. Local Bangladeshi villages have also taken in the new arrivals. They spared no effort to help, straining their already limited resources.                
+                    The humanitarian response in Bangladesh remains focused on meeting the massive humanitarian needs and on mitigating the impact of the seasonal monsoon rains. However, additional international support is urgently needed to step up the assistance from purely humanitarian and day-to-day support towards addressing medium-term challenges, including resilience, education, registration, and programmes to protect the most vulnerable refugees – including children, women and persons with specific needs.</p>
+
+            </section>
+
+            <section data-scene="scene4" style="background-color: hsl(0, 0%, 33%, 0.4);">
+                
+                <h2>Kutupalong</h2><br>
+                               
+                <p>The Kutupalong refugee settlement has grown to become the largest of its kind in the world, with more than 600,000 people living in an area of just 13 square kilometres, stretching infrastructure and services to their limits.</p>
+                <img class="img-responsive img-thumbnail" src="img/kutu.jpg" width="100%"/>
+                <p><small>Kutupalong Refugee camp, Bangladesh. (credit: <a class= "cap" href="https://www.unhcr.org/ph/12861-bangladesh-rohingya-refugees-moved-from-kutupalong-camp-to-new-site.html/header-rohingya-27-oct">unhcr.org</a>)</small></p>
+                <p><script type="text/javascript" src="js/ig.js"></script><div id="instagram-feed2" class="instagram_feed"></div></p> 
+
+                
+                <small>Instagram images of Kutupalong. Source: <a class= "cap" href="https://www.instagram.com/">instagram.com</a>)</small>
+            </section>
+
+            <section data-scene="scene5">
+                
+                <h2>Life as a refugee</h2><br>
+
+        <p>Nayapara refugee camp is in Teknaf, Cox's Bazar, Bangladesh. It is located next to the village of Dhumdumia
+            and is inhabited mostly by Rohingya people that have fled from religious persecution in neighboring Myanmar.
+            This is the second Bangladeshi government-run refugee camps in Cox's Bazar, the first being the Kutupalong
+            refugee camp.</p> <br>
+
+        <p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/OsUsxACgsk8" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </p>
+        <br>
+        <p>
+        <h4 style="text-align: center;"> Stories from the Camp</h4>
+        <div id="bb"></div>
+            </section>
+     
+            <script>
+                $(document).ready(function () {
+                    $("#stories").hide();
+                });
+            
+                $("#bb").click(function () {
+                    $("#stories").fadeToggle(600);
+                });
+                $(document).ready(function (c) {
+                    $('.alert-close').on('click', function (c) {
+                        $(this).parent().fadeOut('slow', function (c) {
+                        });
+                    });
+                });
+            </script>
+        </div>
+        <!--map div-->
+        <div class="col-sm-5 col-md-7 storymap-map"></div>
+    </div>
+    <dl>
+        <dt>
+            <!--facebook icon-->
+            <a class="fab fa-facebook-square btn"
+               href="https://it-it.facebook.com/natgeo/"  style="top:60px"
+               target="_blank"></a>
+        </dt>
+        <dt>
+            <!--github icon-->
+            <a class="fab fa-github btn" href="https://github.com" style="top:80px"
+               target="_blank"></a>
+        </dt>
+        <dt>
+            <!--info icon-->
+            <i class="fas fa-info-circle btn" style="top:100px" data-toggle="modal" data-target="#info-modal"></i>
+        </dt>
+
+    </dl>
+
+    <!--the info page-->
+    <div class="modal fade" id="info-modal" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">About</h4>
+                </div>
+                <div class="modal-body">
+                    <p><div>Conflict data by <a href="https://www.acleddata.com/" title="GADM">ACLED</a> </div></p>
+                    <p><div>Geographic boundaries by <a href="https://gadm.org/data.html" title="GADM">GADM</a> </div></p>
+                    <p><div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div></p>
+                    <p></p>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- main javascript -->
+<script type="text/javascript">
+
+
+    // Create Legend Contents in html format
+    var overview_legend = '<i style="background: red; opacity: 0.4"></i><p><b>Myanmar</b></p>';
+    var ban_legend = '<i style="background: blue; opacity: 0.6"></i><p><b>Bangladesh</b></p>';
+    var cas_legend = '<img src="img/circle2.svg"><p><b> &nbsp; Fatalities</b></p>';
+    var cities_legend = '<img src="img/cities.png"><p><b> &nbsp; Major incidents</b></p>';
+    var no_legend = '';
+    var rak_legend = '<i style="background: green; opacity: 0.4"></i><p><b>Rakhine State</b></p>';
+    var camp_off_legend = '<br><img src="img/circle3.svg"><p><b> &nbsp; Registered Camp</b></p>';
+    var camp_unoff_legend = '<img src="img/circle4.svg"><p><b> &nbsp; Other Camps</b></p>';
+
+
+    // For each layer, the first variable is the layer, the second is the legend. The layer variable can be any kinds of layers that leaflet.js supports.
+    // var layers = {
+    //      layer1: {layer: layer1, legend: legend1},
+    //      layer2: {layer: layer2, legend: legend2}
+    //      ...
+    // }
+
+    function iconByCasualities(feature){
+        var calculatedSize = (feature.properties.fatalities / 1) * 1;
+                    
+        // create icons
+        return L.icon({
+            iconUrl: 'img/circle2.svg',
+            popupAnchor: [120, 100],
+            iconSize: [calculatedSize, calculatedSize],
+        })
+    }
+        
+// create the GeoJSON layer and call the styling function with each marker
+        var conMark = L.geoJSON.ajax('data/casualities.geojson',  {
+            
+            pointToLayer: function (feature, latlng) {
+                
+                return L.marker(latlng, {icon: iconByCasualities(feature)}).bindPopup('<div style="font-size: 1rem; color:white;text-shadow: 1px 1px #1e1e1e">'+feature.properties.location+', '+feature.properties.event_date+'</div><div  style="font-size: 1.75rem; color:white;text-shadow: 1px 1px #1e1e1e">'+feature.properties.fatalities+' fatalities'+'</div>', {maxWidth: 1170, closeButton: false}).on('mouseover', function (e) {this.openPopup()}).on('mouseout', function (e) {this.closePopup()});;
+            },
+        })
+                 
+        function cities(feature){
+        
+        return L.icon({
+            iconUrl: 'img/cities.png',
+            popupAnchor: [20, 15],
+            iconSize: [32,32],
+        })
+    }
+        
+// create the GeoJSON layer and call the styling function with each marker
+        var citiesMarker = L.geoJSON.ajax('data/cities.geojson',  {
+            pointToLayer: function (feature, latlng) {
+                return L.marker(latlng, {icon: cities(feature)}).bindPopup('<p style="font-size: 1rem; color:white;text-shadow: 1px 1px #1e1e1e">'+feature.properties.name+'<br> ', {maxWidth: 1170, closeButton: false}).on('mouseover', function (e) {this.openPopup()}).on('mouseout', function (e) {this.closePopup()});;
+            }
+        })
+
+// Refugee Camps Layers
+
+
+// Official Camps
+function campBySize1(feature){
+        var campSize = Math.sqrt(feature.properties.Population) / 10;
+                    
+        // create icons
+        return L.icon({
+            iconUrl: 'img/circle3.svg',
+            popupAnchor: [120, 100],
+            iconSize: [campSize, campSize]
+        })
+    }
+        
+// create the GeoJSON layer and call the styling function with each marker
+        var campMark = L.geoJSON.ajax('data/camps_off.geojson',  {
+            pointToLayer: function (feature, latlng) {
+                return L.marker(latlng, {opacity: 0, icon: campBySize1(feature)}).bindPopup('<div style="font-size: 1.5rem; color:white;text-shadow: 1px 1px #1e1e1e">'+feature.properties.Name+', </div><div  style="font-size: 1.2rem; color:white;text-shadow: 1px 1px #1e1e1e">'+feature.properties.Population+' population'+'</div>', {maxWidth: 1170, closeButton: false}).on('mouseover', function (e) {this.openPopup()}).on('mouseout', function (e) {this.closePopup()});
+            }
+        })
+
+// Unofficial Camps
+function campBySize2(feature){
+        var campSize = Math.sqrt(feature.properties.Population)/10;
+                    
+        // create icons
+        return L.icon({
+            iconUrl: 'img/circle4.svg',
+            popupAnchor: [120, 100],
+            iconSize: [campSize, campSize],
+        })
+    }
+        
+// create the GeoJSON layer and call the styling function with each marker
+        var campUnMark = L.geoJSON.ajax('data/camps_unoff.geojson',  {
+            pointToLayer: function (feature, latlng) {
+                return L.marker(latlng, {opacity: 0,icon: campBySize2(feature)}).bindPopup('<div style="font-size: 1.5rem; color:white;text-shadow: 1px 1px #1e1e1e">'+feature.properties.Name+', </div><div  style="font-size: 1.2rem; color:white;text-shadow: 1px 1px #1e1e1e">'+feature.properties.Population+' population'+'</div>', {maxWidth: 1170, closeButton: false}).on('mouseover', function (e) {this.openPopup()}).on('mouseout', function (e) {this.closePopup()});
+            }
+        })
+
+
+// Layers
+    var layers = {
+
+       camp_off: {layer: campMark},
+       camp_unoff: {layer: campUnMark},
+        
+        cities: {layer: citiesMarker, legend: cities_legend
+        },
+
+        casualties: {layer: conMark, legend: cas_legend
+        },
+
+        ban: {
+            layer: L.geoJson.ajax('data/ban2.geojson', {
+                color: 'DarkBlue',
+                fillOpacity: '0.4',
+                weight: 2,
+                opacity: 0.2,                
+            }), legend: ban_legend
+        },
+        mya: {
+            layer: L.geoJson.ajax('data/mya2.geojson', {
+                weight: '1.3',
+				color: 'red',	
+				opacity: '0.3',
+				fillOpacity: '0.2',
+            }), legend:overview_legend
+        },
+
+        rak: {
+            layer: L.geoJson.ajax('data/rakhine2.geojson', {
+                weight: '1.3',
+				color: 'green',
+				weight: '0.5',
+				dashArray: '1',
+				opacity: '0.8',
+				fillOpacity: '0.5',
+            }), legend: rak_legend
+        },
+        kut: {
+            layer: L.geoJson.ajax('data/subcamps.geojson', {
+                weight: '1.3',
+				color: 'yellow',
+				weight: '0.5',
+				dashArray: '1',
+				opacity: '0.8',
+				fillOpacity: '0.2',
+            })
+        },
+
+       // hook: {layer: L.tileLayer('assets/hook/{z}/{x}/{y}.png', {opacity: 0.7}), legend: hookworm_legend
+       //  },
+
+       ESRI: {layer: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}')},
+
+       ESRI_NG: {layer: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}')},
+
+        google: {
+            layer: L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'),
+           
+        },
+        satellite: {
+            layer: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}')
+        },
+        mapnik: {layer: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png')},
+    
+        cartodb_light: {layer: L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}@2x.png')}
+    
+
+    };
+  
+    var scenes = {
+        scene0: {lat:  20.4600, lng: 89.207, zoom: 6, name: 'Intro'},
+        scene1: {lat:  20.4600, lng: 89.207, zoom: 6, name: 'Intro', layers: [layers.ESRI_NG, layers.mya, layers.rak, layers.ban]},
+        scene2: {lat:  20.8500, lng: 91.807, zoom:  9, name: 'Conflict', layers: [ layers.ban,layers.mya, layers.rak, layers.cities,layers.casualties]},
+        scene3: {lat:  21.00350,  lng: 92.0400, zoom: 11, name: 'Crisis', layers: [layers.ban,layers.rak, layers.camp_off, layers.camp_unoff, layers.kut ]},        
+        scene4: {lat:  21.19190,  lng: 92.139, zoom: 15, name: 'Data', layers: []},  
+        scene5: {lat:  21.19820,  lng: 92.148, zoom: 16, name: 'Camp', layers: [layers.google]},        
+      
+    };
+
+    $('#storymap').storymap({
+        scenes: scenes,
+        baselayer: layers.cartodb_light,
+        legend: true, // if you do not want a legend feature, you can simply not define the createLegend function.
+        credits: "",
+        loader: true,
+        scrolldown: true,
+        flyto: true,
+        navwidget: true,
+        mapinteraction: false,
+
+        createMap: function () {
+            // create a map in the "map" div, set the view to a given place and zoom
+            var map = L.map($(".storymap-map")[0], {
+                zoomControl: false, scrollWheelZoom: false, fadeAnimation: true,
+                zoomAnimation: true
+            }).setView([20.80, 92.45], 5);
+ 
+// Ant path
+        var routes1 = [ [ 20.48411307747093, 92.749295867544134 ], [ 20.493370077096749, 92.732805413341495,  ], [ 20.505030913629426,92.712782934957914 ], [ 20.517039414590847, 92.692967015753325 ], [ 20.529391922075295,92.673363691848706 ], [ 20.542084673389326, 92.6539789346064 ], [ 20.555113802197937, 92.634818648811247 ], [ 20.568475339702271, 92.615888670871925 ], [ 20.582165215848573, 92.597194767043078 ], [ 20.596179260567951, 92.578742631668916 ], [ 20.610513205046622, 92.560537885448625 ], [ 20.625162683026247, 92.542586073724252 ], [ 20.640123232133917, 92.524892664791537 ], [ 20.65539029524145, 92.507463048234271 ], [ 20.670959221853529, 92.490302533282474 ], [ 20.686825269524288, 92.473416347195254 ], [ 20.702983605301906, 92.45680963366847 ], [ 20.719429307200777, 92.440487451267927 ], [ 20.736157365700791, 92.424454771888506 ], [ 20.753162685273278,  92.40871647923967 ], [ 20.770440085933163, 92.393277367357811 ], [ 20.787984304816838, 92.37814213914595 ], [ 20.805789997785272, 92.363315404941261 ], [ 20.823851741051904, 92.348801681110572 ], [  20.842164032834759, 92.334605388674774 ], [ 20.860721295032373, 92.320730851962082 ], [ 20.879517874922911, 92.307182297290765 ], [ 20.898548046886045, 92.293963851681823 ], [20.917806014147054,  92.281079541601855 ], [ 20.937285910542553, 92.268533291736503 ], [  20.955921876870015, 92.256973642084219 ] ]
+        
+        var routes2 = [ [ 20.793096557512182, 92.507942589047161 ], [20.7987821339179,  92.504114414177607 ], [  20.804400033519059, 92.50018759536735 ], [20.809948545049014,  92.496163328763473 ], [ 20.815425978377405, 92.492042840196547 ], [ 20.820830665024978, 92.487827384807289 ], [ 20.826160958671828, 92.483518246664289 ], [ 20.83141523565887, 92.479116738372724 ], [ 20.836591895482435, 92.474624200674697 ], [ 20.841689361281794, 92.470042002040685 ], [ 20.846706080319485, 92.465371538252782 ], [ 20.851640524454293, 92.46061423197952 ], [ 20.856491190606729, 92.455771532342453 ], [ 20.861256601216898, 92.450844914474828 ], [ 20.86593530469456, 92.445835879072149 ], [ 20.870525875861311, 92.440745951935128 ], [ 20.875026916384712, 92.435576683504877 ], [ 20.87943705520421, 92.430329648390654 ], [20.883754948948802,  92.425006444890158 ], [ 20.887979282346219, 92.41960869450277 ], [ 20.892108768623597, 92.414138041435521 ], [ 20.896142149899401, 92.408596152102348 ], [ 20.900078197566632, 92.402984714616423 ], [ 20.903915712667033, 92.39730543827595 ], [ 20.907653526256336, 92.391560053043548 ], [ 20.911290499760309, 92.385750309019187 ], [ 20.914825525321593, 92.379877975907192 ], [ 20.918257526137154, 92.373944842477101 ], [20.9215854567863,  92.367952716018848 ], [ 20.924808303549117, 92.361903421792206 ], [ 20.927925084715255, 92.355798802470773 ], [ 20.930934850882988, 92.349640717580741 ], [ 20.933836685248377, 92.343431042934441 ], [ 20.936629703884567, 92.337171670058893 ], [ 20.939313056011024, 92.330864505619729 ], [ 20.941885924252695, 92.324511470840335 ], [20.94434752488899,  92.31811450091665 ], [ 20.946697108092511, 92.311675544427672 ], [20.948933958157451,  92.305196562741926 ], [  20.951057393717615, 92.298679529420014 ], [20.953066767953956,  92.29212642961339 ], [ 20.95496146879162, 92.285539259459753 ], [ 20.956740919086375, 92.278920025474946 ], [ 20.958404576800426, 92.272270743941746 ], [ 20.959951935167517, 92.265593440295746 ], [ 20.961050233385222, 92.260499387188403 ], [ 20.961382522847298, 92.2588901485083 ], [ 20.962332322514026, 92.254088941544396 ] ]
+
+        var routes3 = [ [ 21.015152544688959, 92.48375272491181 ], [ 21.019895286305506,  92.48088178925066], [ 21.02458720084352, 92.477928518592591 ], [ 21.02922685910038, 92.474893812532471 ], [ 21.033812847791236, 92.47177859547115 ],  [ 21.042818245502399, 92.465310448281471 ], [ 21.047234911391328, 92.461959488413413 ], [  21.051592422287079, 92.458531957464572 ], [ 21.055889450849619, 92.455028899494096 ], [  21.060124688162418, 92.451451381567381 ], [ 21.064296844131171, 92.447800493431018 ], [ 21.068404647876747, 92.444077347180922 ], [  21.072446848122333, 92.440283076923492 ], [21.076422213574578,  92.436418838430214 ], [ 21.080329533298656, 92.432485808785572 ],  [ 21.087935295822483, 92.424418188787413 ], [ 21.091631421833291, 92.420286055909102 ], [ 21.09525486924376, 92.416090046081266 ], [ 21.098804534316706, 92.411831437449123 ], [ 21.102279335789763, 92.407511527226148 ], [ 21.105678215204744, 92.40313163129882 ], [ 21.109000137230048, 92.398693083825876 ], [21.112244089976048,  92.394197236831872 ], [ 21.115409085303313, 92.389645459795346 ], [ 21.118494159123607,  92.385039139231694 ],  [ 21.124420807900915, 92.375668496229537 ], [ 21.1272605775433, 92.370907028179658 ], [  21.130016815599369, 92.366096724510442 ], [ 21.132688682492308, 92.361239050486972 ], [21.135275364345581,  92.356335485803839 ], [ 21.140190047407923, 92.346396672675482 ], [ 21.142516551556927, 92.341364451689032 ], [ 21.144754877002139, 92.336292394038225 ], [ 21.14690434192795, 92.331182044720961 ], [ 21.14896429158652, 92.326034960399141 ], [ 21.152813162637806, 92.315636868861063 ], [ 21.154600911627117, 92.310389029004227 ], [ 21.156296800899497,  92.305110787896851 ], [ 21.157900313870645, 92.299803753342303 ], [ 21.159410962094981, 92.294469541914722 ],  [ 21.162151852098543, 92.283726095633767 ], [ 21.163381258976123, 92.278320133338184 ], [ 21.164516131557917,  92.272893538288358 ], [  21.165556124150736, 92.267447963477679 ], [  21.166500919962768, 92.261985067680996 ],  [ 21.16810379915416, 92.251013974102818 ], [ 21.168761394280992, 92.245509118222685 ], [ 21.1693228162707, 92.239993624141349 ], [ 21.169787894108712, 92.234469171931735 ], [  21.170156486127812, 92.228937444395484 ],  [ 21.170603793027187, 92.217858905117168 ], [21.170682371653449,  92.212315468005471 ], [21.170664191994273,  92.20677150379997 ], [ 21.170549259587361, 92.201228701245881 ], [  21.170337609442232, 92.195688748734554 ],  [ 21.169624443261597, 92.18462414255076 ], [ 21.169123144463416, 92.179102859264532 ], [ 21.168525562335503, 92.173591165766865 ], [ 21.167042305481093, 92.1626032603656 ] ]
+        
+antPolyline1 = L.polyline.antPath(routes1, {"delay":1446,"dashArray":[10,20],"weight":2,"color":"red","pulseColor":"white","paused":false,"reverse":false}
+);
+
+antPolyline2 = L.polyline.antPath(routes2, {"delay":1446,"dashArray":[10,20],"weight":3,"color":"red","pulseColor":"white","paused":false,"reverse":false}
+);
+
+antPolyline3 = L.polyline.antPath(routes3, {"delay":1446,"dashArray":[10,20],"weight":5,"color":"red","pulseColor":"white","paused":false,"reverse":false}
+);
+
+var routes = L.layerGroup([antPolyline1, antPolyline2, antPolyline3]);
+
+map.on('zoom', function() {
+			 if ( map.getZoom() > 10 ){ map.addLayer( routes )}
+			 else if ( map.getZoom() < 12 ){ map.removeLayer( routes )};
+        });
+map.on('zoom', function() {
+			 if ( map.getZoom() < 9  ){ map.removeLayer( routes )}
+			 else if ( map.getZoom() > 11 ){ map.addLayer( routes )};
+		});
+
+            return map;
+        }
+    });
+    
+
+
+
+
+</script>
+
+</body>
+</html>
+
+*/ function to size each icon proportionally based on number of stations
+function iconByStations(feature){
+  var calculatedSize = (feature.properties.STATIONS / 80) * 30;
+            
+  // create metro icons
+  return L.icon({
+    iconUrl: 'metro.svg',
+    iconSize: [calculatedSize, calculatedSize]
+  });
+}
+        
+// create the GeoJSON layer and call the styling function with each marker
+var metroLayer = L.geoJSON(metroData,  {
+  pointToLayer: function (feature, latlng) {
+    return L.marker(latlng, {icon: iconByStations(feature)});
+  }
+});/*
+
+
+
+marker.bindPopup("Popup content");
+        marker.on('mouseover', function (e) {
+            this.openPopup();
+        });
+        marker.on('mouseout', function (e) {
+            this.closePopup();
+        });

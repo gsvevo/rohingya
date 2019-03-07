@@ -1,0 +1,16 @@
+{
+"type": "FeatureCollection",
+"name": "camps_unoff",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": null, "Name": "Kutupalong Expansion Site", "Population": 610372 }, "geometry": { "type": "Point", "coordinates": [ 92.149598677547104, 21.195191760532648 ] } },
+{ "type": "Feature", "properties": { "id": null, "Name": "Hakimpara, Jamtoli and Moynarghona", "Population": 103145 }, "geometry": { "type": "Point", "coordinates": [ 92.145592149019606, 21.162979271171498 ] } },
+{ "type": "Feature", "properties": { "id": null, "Name": "Chakmakul", "Population": 12259 }, "geometry": { "type": "Point", "coordinates": [ 92.157611734602128, 21.132209132080252 ] } },
+{ "type": "Feature", "properties": { "id": null, "Name": "Shamlapur", "Population": 10963 }, "geometry": { "type": "Point", "coordinates": [ 92.142066403915393, 21.078120996958923 ] } },
+{ "type": "Feature", "properties": { "id": null, "Name": "Unchiprang", "Population": 22206 }, "geometry": { "type": "Point", "coordinates": [ 92.196394930748369, 21.089018754553738 ] } },
+{ "type": "Feature", "properties": { "id": null, "Name": "Ali Khali", "Population": 9497 }, "geometry": { "type": "Point", "coordinates": [ 92.241668703109184, 20.982044442869341 ] } },
+{ "type": "Feature", "properties": { "id": null, "Name": "Leda", "Population": 33544 }, "geometry": { "type": "Point", "coordinates": [ 92.247918887612101, 20.971707599268374 ] } },
+{ "type": "Feature", "properties": { "id": null, "Name": "Nayapara Extension", "Population": 41035 }, "geometry": { "type": "Point", "coordinates": [ 92.253528027550601, 20.957604618851555 ] } },
+{ "type": "Feature", "properties": { "id": null, "Name": "Jadimura", "Population": 14269 }, "geometry": { "type": "Point", "coordinates": [ 92.261541084605611, 20.933405186545418 ] } }
+]
+}
