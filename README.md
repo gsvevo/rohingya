@@ -21,8 +21,8 @@ This project aims to use story and data to help audiences understanding the expe
 
 
 
-
-
+Direct link 
+https://gsvevo.github.io/rohingya/
 
 
 ------
