@@ -8,7 +8,18 @@
 .title{
   position: absolute;
   top: 30%;
-  left: 40%;
+  left: 37%;
+}
+.title2{
+    position: relative;
+    size: 5px;
+    top: 79%;
+
+ }
+.title3{
+    position: relative;
+    size: 5px;
+    top: 45%;
 }
 
  .we-pp-tip {
