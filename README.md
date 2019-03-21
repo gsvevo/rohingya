@@ -5,7 +5,8 @@
 An expansion of the National Geographic and Oregon State University   Refugee Atlas Project 
 
 By Giovanni Svevo and Ginny Katz
-Final Priject
+
+Final Project
 
 GEOG 571 | Dr. Bo Zhao
 
